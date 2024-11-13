@@ -66,7 +66,6 @@ if actualIp != infomaniakIp:
     logging.info(f'Ip has changed: actual IP{actualIp} - registred ip: {infomaniakIp}. Trying to fix it.')
     try:
         fixBadIp(actualIp)
-        print('yo')
 
     except Exception as e:
         print(e)
