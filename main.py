@@ -7,7 +7,7 @@ logging.basicConfig(format='%(asctime)s - %(levelname)s: %(message)s', filename=
                     level=logging.DEBUG)
 url_ipfy = 'https://api.ipify.org?format=json'
 zoneId = < Number: id de la zone dns à modifier >
-bearer_token = "<String: clé api >"
+bearer_token = "< String: clé api >"
 domainName = "< String: nom de domaine cible >"
 
 
@@ -57,21 +57,21 @@ def fixBadIp(newIp):
 
 
 infomaniakIp = get_registred_ip()
-actualIp = get_public_ip()
+currentIp = get_public_ip()
 
-if infomaniakIp is False or actualIp is False:
+if infomaniakIp is False or currentIp is False:
     exit()
 
-if actualIp != infomaniakIp:
-    logging.info(f'Ip has changed: actual IP{actualIp} - registred ip: {infomaniakIp}. Trying to fix it.')
+if currentIp != infomaniakIp:
+    logging.info(f'Ip has changed: actual IP{currentIp} - registred ip: {infomaniakIp}. Trying to fix it.')
     try:
-        fixBadIp(actualIp)
+        fixBadIp(currentIp)
 
     except Exception as e:
         print(e)
 
     else:
-        logging.info(f'Ip updated. New ip: {actualIp}\n')
+        logging.info(f'Ip updated. New ip: {currentIp}\n')
 
 else:
     logging.info("IP is un to date, nothing to change \n")
